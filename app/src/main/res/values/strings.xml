@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">HomeTest</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiaW1hZGVsYm91aGF0aSIsImEiOiJja3FtaTl5bjAwOWdpMnhxYjV1MmJ0NHZ0In0.5YddiPkXrPtXFYhy-NVwRA</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
