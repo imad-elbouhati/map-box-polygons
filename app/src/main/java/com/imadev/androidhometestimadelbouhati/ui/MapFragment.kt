@@ -145,9 +145,7 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
         return circleGeoJsonSource
     }
 
-    /**
-     * Set up the CircleLayer for showing polygon click points
-     */
+
     private fun initCircleLayer(loadedMapStyle: Style) {
         val circleLayer = CircleLayer(
             CIRCLE_LAYER_ID,
@@ -155,7 +153,7 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
         )
         circleLayer.setProperties(
             circleRadius(5.5f),
-            circleColor(Color.parseColor("#d004d3"))
+            circleColor(Color.parseColor("#fc0303"))
         )
         loadedMapStyle.addLayer(circleLayer)
     }
@@ -168,9 +166,7 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
         return fillGeoJsonSource
     }
 
-    /**
-     * Set up the FillLayer for showing the set boundaries' polygons
-     */
+
     private fun initFillLayer(loadedMapStyle: Style) {
         val fillLayer = FillLayer(
             FILL_LAYER_ID,
@@ -183,9 +179,7 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
         loadedMapStyle.addLayerBelow(fillLayer, LINE_LAYER_ID)
     }
 
-    /**
-     * Set up the LineLayer source for showing map click points
-     */
+
     private fun initLineSource(loadedMapStyle: Style): GeoJsonSource? {
         val lineFeatureCollection = FeatureCollection.fromFeatures(arrayOf())
         val lineGeoJsonSource = GeoJsonSource(LINE_SOURCE_ID, lineFeatureCollection)
@@ -193,9 +187,7 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
         return lineGeoJsonSource
     }
 
-    /**
-     * Set up the LineLayer for showing the set boundaries' polygons
-     */
+
     private fun initLineLayer(loadedMapStyle: Style) {
         val lineLayer = LineLayer(
             LINE_LAYER_ID,
@@ -212,29 +204,22 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
     private fun listenToMapClick() {
         mapBoxMap?.let { map ->
             map.addOnMapClickListener { point ->
-                // Use the map click location to create a Point object
-                // Use the map click location to create a Point object
+
                 val mapTargetPoint = Point.fromLngLat(
                     point.longitude,
                     point.latitude
                 )
 
-                // Make note of the first map click location so that it can be used to create a closed polygon later on
 
-                // Make note of the first map click location so that it can be used to create a closed polygon later on
                 if (circleLayerFeatureList.size == 0) {
                     firstPointOfPolygon = mapTargetPoint
                 }
 
-                // Add the click point to the circle layer and update the display of the circle layer data
 
-                // Add the click point to the circle layer and update the display of the circle layer data
                 circleLayerFeatureList.add(Feature.fromGeometry(mapTargetPoint))
                 circleSource?.drawLayer(circleLayerFeatureList)
 
-                // Add the click point to the line layer and update the display of the line layer data
 
-                // Add the click point to the line layer and update the display of the line layer data
 
                 when (circleLayerFeatureList.size) {
                     in 0..2 -> {
@@ -261,8 +246,6 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
                     )
                 }
 
-                // Add the click point to the fill layer and update the display of the fill layer data
-                // Add the click point to the fill layer and update the display of the fill layer data
 
                 when (circleLayerFeatureList.size) {
                     in 0..2 -> {
@@ -335,7 +318,7 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
     private fun zoomAndAnimateCamera(lat: Double, lang: Double) {
         val position = CameraPosition.Builder()
             .target(LatLng(lat, lang))
-            .zoom(10.0)
+            .zoom(11.0)
             .tilt(20.0)
             .build()
         mapBoxMap?.animateCamera(

@@ -59,6 +59,7 @@
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:enabled="false"
             android:layout_weight="1">
 
         </androidx.appcompat.widget.AppCompatAutoCompleteTextView>
