@@ -3,4 +3,13 @@
     <string name="mapbox_access_token">pk.eyJ1IjoiaW1hZGVsYm91aGF0aSIsImEiOiJja3FtaTl5bjAwOWdpMnhxYjV1MmJ0NHZ0In0.5YddiPkXrPtXFYhy-NVwRA</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save">Save</string>
+    <string name="clear">Clear</string>
+    <string name="location_menu">Locations List</string>
+    <string name="location_list">Location List</string>
+    <string name="enter_name">Enter name</string>
+    <string name="confirm">Confirm</string>
+    <string name="place_name">Place name</string>
+    <string name="invalid_land_selection">Invalid land selection</string>
+    <string name="please_type_name">Please type a name</string>
 </resources>
